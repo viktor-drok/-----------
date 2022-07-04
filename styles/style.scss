@@ -1,0 +1,129 @@
+.wrapper {
+    position: relative;
+}
+
+.toggle {}
+
+.burger-menu {
+    position: absolute;
+    left: -273px;
+    top: 0;
+    height: 100vh;
+    width: 273px;
+    background-color: #fff;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+
+.header {}
+
+.burger-btn {
+    // position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(../images/burger/burger.svg) no-repeat center;
+}
+
+// #burger-toggle:checked +.glass > .burger-menu {
+//     left: 0;
+// }
+
+#burger-toggle:checked {
+    & + .glass {
+        background-color: #4444;
+        pointer-events: unset;
+
+        & > .burger-menu {
+            left: 0;
+        }
+    }
+    & ~ .main {
+        background: #072D4B;
+    }
+}
+
+// #burger-toggle:checked ~ .main {    
+//     background: #072D4B;
+// }
+.glass {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    pointer-events: none;
+}
+
+.close-aside {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    background-color: #bbb;
+    transition: all 0.3s;
+}
+
+// ----------------------------------------------------
+.filter-wrapper {
+    overflow: hidden;
+    height: 30px;
+    background-color: lightblue;
+}
+
+
+.filter {
+    display: flex;
+    gap: 10px;
+    overflow: auto;
+    height: 50px;
+    background-color: rgba(17, 156, 52, 0.504);
+
+    span {
+        display: block;
+        padding: 6px 17px;
+        border-radius: 15px;
+        background-color: #ffffff;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+}
+}
+
+#all-radio:checked ~ .filter-wrapper [for="all-radio"] > span,
+#android-radio:checked ~ .filter-wrapper [for="android-radio"] > span,
+#cricket-radio:checked ~ .filter-wrapper [for="cricket-radio"] > span,
+#iphone-radio:checked ~ .filter-wrapper [for="iphone-radio"] > span,
+#google-radio:checked ~ .filter-wrapper [for="google-radio"] > span {
+    background-color: #2F9FF8;
+}
+
+#android-radio:checked ~ .news-cards > li:not(.android), 
+#iphone-radio:checked ~ .news-cards > li:not(.iphone), 
+#cricket-radio:checked ~ .news-cards > li:not(.cricket), 
+#google-radio:checked ~ .news-cards > li:not(.google) {
+    display: none;
+}
+
+.news-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+
+    li {
+        background-color: cornflowerblue;
+    }
+}
+
+
+.footer {}
